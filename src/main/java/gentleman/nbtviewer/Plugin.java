@@ -31,7 +31,7 @@ public class Plugin extends org.rusherhack.client.api.plugin.Plugin {
 	
 	@Override
 	public String getVersion() {
-		return "v1.0";
+		return "v1.2";
 	}
 	
 	@Override

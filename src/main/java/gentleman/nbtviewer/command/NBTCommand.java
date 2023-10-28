@@ -2,11 +2,11 @@ package gentleman.nbtviewer.command;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.item.ItemStack;
 import org.rusherhack.client.api.feature.command.Command;
 import org.rusherhack.core.command.annotations.CommandExecutor;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.item.ItemStack;
-import net.minecraft.client.MinecraftClient;
+
 
 import java.awt.datatransfer.StringSelection;
 import java.awt.Toolkit;
@@ -19,12 +19,11 @@ public class NBTCommand extends Command {
 
 	@CommandExecutor(subCommand = "view")
 	private String viewNBT() {
-		MinecraftClient mc = MinecraftClient.getInstance();
-		if (mc != null) {
-			ItemStack heldItem = mc.player.getMainHandStack();
+		if (mc.player != null) {
+			ItemStack heldItem = mc.player.getMainHandItem();
 
 			if (!heldItem.isEmpty()) {
-				NbtCompound itemNBT = heldItem.getNbt();
+				CompoundTag itemNBT = heldItem.getTag();
 
 				if (itemNBT != null) {
 					Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -43,12 +42,11 @@ public class NBTCommand extends Command {
 
 	@CommandExecutor(subCommand = "copy")
 	private String copyNBT() {
-		MinecraftClient mc = MinecraftClient.getInstance();
-		if (mc != null) {
-			ItemStack heldItem = mc.player.getMainHandStack();
+		if (mc.player != null) {
+			ItemStack heldItem = mc.player.getMainHandItem();
 
 			if (!heldItem.isEmpty()) {
-				NbtCompound itemNBT = heldItem.getNbt();
+				CompoundTag itemNBT = heldItem.getTag();
 
 				if (itemNBT != null) {
 					Gson gson = new GsonBuilder().setPrettyPrinting().create();
