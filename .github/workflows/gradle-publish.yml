@@ -30,7 +30,7 @@ jobs:
         run: chmod +x gradle
 
       - name: Execute Gradle build
-        run: ./gradle build
+        run: gradle build
 
       - name: Upload build
         uses: actions/upload-artifact@v3
