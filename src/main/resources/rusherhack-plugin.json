@@ -1,3 +1,15 @@
 {
   "Plugin-Class": "gentleman.nbtviewer.Plugin"
+  "Name": "NBT-viewer",
+  "Version": "${plugin_version}",
+  "Description": "NBT viewer plugin",
+  "Authors": [
+    "Gentleman"
+  ],
+  "Minecraft-Versions": [
+    "1.20.1",
+    "1.20.2",
+    "1.20.3",
+    "1.20.4"
+  ]
 }
